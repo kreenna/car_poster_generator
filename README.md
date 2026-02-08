@@ -1,68 +1,72 @@
 # Car Poster Generator
 
-A Python script that automatically fetches car specifications from [automobile-catalog.com](https://www.automobile-catalog.com) and generates professional car posters in PNG or JPG format.
+Программа, автоматически получающая информацию с сайта [automobile-catalog.com](https://www.automobile-catalog.com) и генерирующая постер в PNG JPG формате.
 
-## Features
+---
 
-- 🔍 Automatic car model discovery for any brand
-- 📊 Extracts key specifications (engine, power, torque, weight, acceleration, top speed)
-- 🎨 Generates clean, professional posters matching the reference design
-- 💾 Saves output as PNG or JPG
-- 🌐 Web scraping with robust error handling
+## Функции
 
-## Installation
+- 🔍 Автоматический поиск любой модели
+- 📊 Получение характеристик
+- 🎨 Генерирация постера с найденными характеристиками
+- 💾 Сохранение постера в нужном формате
 
-1. Install Python 3.7 or higher
+---
 
-2. Install required dependencies:
-```bash
+## Усатновка
+
+1. Установите Python 3.7 или выше
+
+2. Установите зависимости:
+3. 
+```
 pip install -r requirements.txt
 ```
 
-## Usage
+---
 
-### Basic Usage
+## Использование
 
-List available models for a brand:
-```bash
-python car_poster_generator.py Audi
+Генерация постера для определенной модели:
+
+```
+python car_poster_generator.py Audi --model tt_gen_2
 ```
 
-Generate a poster for a specific model:
-```bash
-python car_poster_generator.py Audi --model "TT RS"
+С определением конкретного файла с постером:
+
+```
+python car_poster_generator.py BMW --model 02-series_e114_e10_e20 --output bmw.jpg
 ```
 
-Specify output file:
-```bash
-python car_poster_generator.py BMW --model "M3" --output bmw_m3.jpg
+---
+
+### Аргументы командной строки
+
+- `brand` (required): Название авто (e.g., Audi, BMW, Mercedes)
+- `--model`: Название модели
+- `--output`: Пусть к постеру (default: `car_poster.png`)
+- `--verbose` or `-v`: Отображение сообщений о ходе выполнения
+
+---
+
+## Примеры
+
+```
+# Сгенерировать постер для Audi TT tt_gen_2
+python car_poster_generator.py Audi --model tt_gen_2
+
+# Сгенерировать постер для BMW 02-series_e114_e10_e20 в формате JPG
+python car_poster_generator.py BMW --model 02-series_e114_e10_e20 --output bmw.jpg
 ```
 
-### Command Line Arguments
-
-- `brand` (required): Car brand name (e.g., Audi, BMW, Mercedes)
-- `--model`: Specific model name (optional, lists available models if not provided)
-- `--output`: Output file path (default: `car_poster.png`)
-- `--verbose` or `-v`: Enable verbose output
-
-## Examples
-
-```bash
-# Generate poster for Audi TT RS
-python car_poster_generator.py Audi --model "TT RS"
-
-# Generate poster for BMW M3 as JPG
-python car_poster_generator.py BMW --model "M3" --output bmw_m3.jpg
-
-# List all Mercedes models
-python car_poster_generator.py Mercedes
-```
+---
 
 ## Output
 
-The script generates a poster image with:
-- Brand and model name at the top
-- Key specifications at the bottom:
+Программа генерирует постер с информацией о:
+- Названии и модели сверху;
+- Ключевые характеристики снизу:
   - Year (production years)
   - Engine displacement
   - Power (HP)
@@ -71,26 +75,31 @@ The script generates a poster image with:
   - 0-100 km/h acceleration
   - Top speed
 
+---
+
 ## Notes
 
-- The scraper may need adjustments if the website structure changes
-- Some models may not have complete specifications available
-- Network connectivity is required to fetch data from automobile-catalog.com
-- The script uses respectful scraping with delays and proper headers
+- Требуются корректировки, если архитектура сайта или страницы изменилась
+- У некоторых моделей нет нужных характеристик для постера
+- Требуется соединение с интернетом для получения данных с сайта automobile-catalog.com
+
+---
 
 ## Troubleshooting
 
 **No models found:**
-- Verify the brand name spelling on automobile-catalog.com
-- Check your internet connection
-- The website structure may have changed
+- Убедитесь в корректности написания бренда и модели на сайте automobile-catalog.com
+- Проверьте соединение с интернетом
+- Структура сайта могла измениться
 
 **Specifications not retrieved:**
-- The model page format may be different
-- Try a different model variant
-- Check the URL manually in a browser
+- Страница модели могла измениться
+- Проверьте другую модель
+- Проверьте URL вручную в браузере
 
-## Requirements
+---
+
+## Требования
 
 - Python 3.7+
 - requests
@@ -99,6 +108,4 @@ The script generates a poster image with:
 - lxml
 - Selenium
 
-## License
-
-This script is provided as-is for educational and personal use.
+---
