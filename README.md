@@ -97,6 +97,7 @@ The script generates a poster image with:
 - beautifulsoup4
 - Pillow (PIL)
 - lxml
+- Selenium
 
 ## License
 
